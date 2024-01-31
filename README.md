@@ -9,4 +9,4 @@ Hardware
 App
 Apk Included
 
-![alt text]([http://url/to/img.png](https://github.com/AryanRai/DoorUnlock/blob/main/AppScreenshot.png)https://github.com/AryanRai/DoorUnlock/blob/main/AppScreenshot.png)
+![alt text](https://raw.githubusercontent.com/AryanRai/DoorUnlock/main/AppScreenshot.png)
