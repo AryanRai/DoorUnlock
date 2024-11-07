@@ -129,11 +129,6 @@ This setup provides a secure, low-cost IoT door unlocking system. Make sure to r
 
 #Images
 
-#App
-Apk Included
-
-![alt text](https://raw.githubusercontent.com/AryanRai/DoorUnlock/main/AppScreenshot.png)
-
 
 #Hardware
 ![Screenshot 2024-11-07 202248](https://github.com/user-attachments/assets/d9dea49f-79b8-4ffa-a886-eb2a9279382d)
@@ -144,3 +139,9 @@ Apk Included
 ![Screenshot 2024-11-07 202146](https://github.com/user-attachments/assets/5b13f72a-1ba6-4417-aa00-030d14a354d6)
 ![Screenshot 2024-11-07 202220](https://github.com/user-attachments/assets/ba99313e-6577-45bf-8dce-c425650e9916)
 ![Screenshot 2024-11-07 202232](https://github.com/user-attachments/assets/c373595e-d96b-4489-af5c-781cd9d48fcf)
+
+
+# App
+Apk Included
+
+![alt text](https://raw.githubusercontent.com/AryanRai/DoorUnlock/main/AppScreenshot.png)
