@@ -127,7 +127,18 @@ Replace `"firmware.bin"` with the path to your new firmware file.
 
 This setup provides a secure, low-cost IoT door unlocking system. Make sure to replace `STASSID` and `STAPSK` with your network details before deploying.
 
+#Images
+
 #App
 Apk Included
 
 ![alt text](https://raw.githubusercontent.com/AryanRai/DoorUnlock/main/AppScreenshot.png)
+
+
+#Hardware
+![alt text](https://raw.githubusercontent.com/AryanRai/DoorUnlock/main/AppScreenshot.png)
+
+#Demo
+![Close](https://raw.githubusercontent.com/AryanRai/DoorUnlock/main/AppScreenshot.png)
+![Click](https://raw.githubusercontent.com/AryanRai/DoorUnlock/main/AppScreenshot.png)
+![Open](https://raw.githubusercontent.com/AryanRai/DoorUnlock/main/AppScreenshot.png)
