@@ -1,0 +1,12 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@drawable/widget_background">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Front door" android:textSize="22sp" android:textStyle="bold" android:textColor="#E0F5ED"/>
+    <TextView android:id="@+id/widget_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dry run" android:textSize="12sp" android:textColor="#C0DCD2" android:layout_marginBottom="6dp"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:gravity="center">
+        <Button android:id="@+id/widget_tap" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:minHeight="48dp" android:text="Tap" android:textAllCaps="false"/>
+        <Button android:id="@+id/widget_code" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:minHeight="48dp" android:text="Code" android:textAllCaps="false"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:gravity="center">
+        <Button android:id="@+id/widget_ble" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:minHeight="48dp" android:text="Nearby" android:textAllCaps="false"/>
+        <Button android:id="@+id/widget_face" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:minHeight="48dp" android:text="Face" android:textAllCaps="false"/>
+    </LinearLayout>
+</LinearLayout>

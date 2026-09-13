@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.Door" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#42634A</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#C3EDC9</item>
+        <item name="colorOnPrimaryContainer">#17361F</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+</resources>

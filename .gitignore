@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+face_unlock/models/
+face_unlock/data/
+face_unlock/*.log
+.venv/
+# Family-shared archives and prepared firmware contain private credentials.
+Shared/
+firmware/**/build/
+ble_entry/android/.gradle/
+ble_entry/android/**/build/
+ble_entry/android/local.properties
+ble_entry/android/.kotlin/
+ble_entry/android/signing.properties
+*.keystore
+*.jks
+*.p12

@@ -1,0 +1,23 @@
+plugins { id 'com.android.application' }
+def familySigning = new Properties()
+def signingFile = rootProject.file('signing.properties')
+if (signingFile.exists()) signingFile.withInputStream { familySigning.load(it) }
+android {
+    namespace 'home.doorble'
+    compileSdk 36
+    defaultConfig { applicationId 'home.doorble'; minSdk 26; targetSdk 36; versionCode = (project.findProperty('doorVersionCode') ?: '7').toInteger(); versionName = (project.findProperty('doorVersionName') ?: '1.5'); testInstrumentationRunner 'home.doorble.BenchRunner' }
+    signingConfigs {
+        family {
+            if (signingFile.exists()) {
+                storeFile file(familySigning['storeFile'])
+                storePassword familySigning['storePassword']
+                keyAlias familySigning['keyAlias']
+                keyPassword familySigning['keyPassword']
+            }
+        }
+    }
+    buildTypes { release { signingConfig signingConfigs.family } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+tasks.configureEach { if (name == 'validateSigningRelease') doFirst { if (!signingFile.exists()) throw new GradleException('Missing private signing.properties; see UPDATES.md. Never generate a replacement signing identity.') } }
+dependencies { implementation 'com.google.android.material:material:1.13.0' }
