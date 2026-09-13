@@ -10,6 +10,17 @@ public class BenchRunner extends UpdateRunner {
     private Bundle args;
     public void onCreate(Bundle arguments) { super.onCreate(arguments); args=arguments; start(); }
     public void onStart() {
+        if("1".equals(args.getString("service_probe",""))){
+            Bundle out=new Bundle();try{
+                android.content.Context c=getTargetContext();
+                if(!args.getString("expected_board").equals(Keys.prefs(c).getString("board",""))||!args.getString("expected_phone").equals(Keys.prefs(c).getString("phone",""))||Integer.parseInt(args.getString("expected_threshold"))!=Keys.prefs(c).getInt("threshold",0))throw new IllegalStateException("Enrollment/calibration changed during update");
+                Keys.key(c);out.putString("enrollment","PASS: previous board, phone identity, calibration and Keystore key preserved across release upgrade");
+                if("1".equals(args.getString("enrollment_only",""))){finish(Activity.RESULT_OK,out);return;}
+                runOnMainSync(()->c.startForegroundService(new Intent(c,EntryService.class).setAction("RESUME")));Thread.sleep(15000);
+                if(EntryService.authenticatedResponses<1)throw new IllegalStateException("No authenticated BLE responses: "+EntryService.currentStatus);
+                out.putString("upgrade","PASS: previous board, phone identity, calibration and Keystore key preserved; signed BLE responses after release upgrade");out.putInt("authenticated_responses",EntryService.authenticatedResponses);finish(Activity.RESULT_OK,out);
+            }catch(Exception e){out.putString("error",e.toString());finish(Activity.RESULT_CANCELED,out);}return;
+        }
         if("1".equals(args.getString("live_update",""))){try{liveUpdate();}catch(Exception e){Bundle result=new Bundle();result.putString("error",e.toString());finish(Activity.RESULT_CANCELED,result);}return;}
         if("1".equals(args.getString("updates",""))){try{updates();}catch(Exception e){Bundle result=new Bundle();result.putString("error",e.toString());finish(Activity.RESULT_CANCELED,result);}return;}
         if("1".equals(args.getString("proximity_ui",""))){try{proximityUi();}catch(Exception e){Bundle result=new Bundle();result.putString("error",e.toString());finish(Activity.RESULT_CANCELED,result);}return;}

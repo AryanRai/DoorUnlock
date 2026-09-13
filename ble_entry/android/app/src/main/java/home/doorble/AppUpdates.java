@@ -22,7 +22,11 @@ public final class AppUpdates {
     private static boolean dialogOpen,readyOffered;
     private static java.lang.ref.WeakReference<androidx.appcompat.app.AlertDialog> currentDialog=new java.lang.ref.WeakReference<>(null);
     static SharedPreferences prefs(Context c){return c.getSharedPreferences("app-updates",Context.MODE_PRIVATE);}
-    public static void onDestroy(Activity a){androidx.appcompat.app.AlertDialog dialog=currentDialog.get();if(dialog!=null&&dialog.getContext() instanceof android.view.ContextThemeWrapper){android.content.Context base=((android.view.ContextThemeWrapper)dialog.getContext()).getBaseContext();if(base==a)dialog.dismiss();}}
+    public static void onDestroy(Activity a){
+        androidx.appcompat.app.AlertDialog dialog=currentDialog.get();if(dialog==null){dialogOpen=false;return;}
+        Context owner=dialog.getContext();while(owner!=a&&owner instanceof ContextWrapper){Context base=((ContextWrapper)owner).getBaseContext();if(base==owner)break;owner=base;}
+        if(owner==a){dialog.dismiss();dialogOpen=false;currentDialog.clear();}
+    }
     private static boolean active(Activity a){return a!=null&&!a.isFinishing()&&!a.isDestroyed()&&MainActivity.visible;}
     private static void toast(Activity a,String text){if(active(a))Toast.makeText(a,text,Toast.LENGTH_LONG).show();}
     public static void onResume(Activity a){

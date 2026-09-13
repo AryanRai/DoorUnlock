@@ -5,7 +5,7 @@ if (signingFile.exists()) signingFile.withInputStream { familySigning.load(it) }
 android {
     namespace 'home.doorble'
     compileSdk 36
-    defaultConfig { applicationId 'home.doorble'; minSdk 26; targetSdk 36; versionCode = (project.findProperty('doorVersionCode') ?: '7').toInteger(); versionName = (project.findProperty('doorVersionName') ?: '1.5'); testInstrumentationRunner 'home.doorble.BenchRunner' }
+    defaultConfig { applicationId 'home.doorble'; minSdk 26; targetSdk 36; versionCode = (project.findProperty('doorVersionCode') ?: '8').toInteger(); versionName = (project.findProperty('doorVersionName') ?: '1.5.1'); testInstrumentationRunner 'home.doorble.BenchRunner' }
     signingConfigs {
         family {
             if (signingFile.exists()) {
